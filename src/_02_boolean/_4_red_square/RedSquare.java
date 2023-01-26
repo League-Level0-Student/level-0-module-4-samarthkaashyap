@@ -8,21 +8,35 @@ import org.jointheleague.graphical.robot.Robot;
 
 public class RedSquare {
 	
-	static boolean drewRedSquare = false;
+	static boolean drewRedSquare = true;
 	static boolean drewBlueSquare = false;
 	static boolean drewRedTriangle = false;
 	static boolean drewBlueTriangle = false;
 	
 	public static void main(String[] args) {
-		
+	if (drewRedSquare || drewBlueSquare) {
+		JOptionPane.showMessageDialog(null, "You drew square");
+	}
+	else if (drewRedTriangle || drewBlueTriangle) {
+		JOptionPane.showMessageDialog(null, "You drew triangle");
+	}
 		boolean isRed = false;
-		boolean isSquare = true;
+		boolean isSquare = false;
 		
 		// The && shown here means that both booleans must be true for the 
 		// entire if statement to be true. It is referred to as the "and"
 		// operator. 
 		if(isRed && isSquare) {
 			drawRedSquare();
+		}
+		else if (!isRed && isSquare == true) {
+			drawBlueSquare();
+		}
+		else if (isRed == true && !isSquare) {
+			drawRedTriangle();
+		}
+		else if (!isRed && !isSquare) {
+			drawBlueTriangle();
 		}
 		else {
             JOptionPane.showMessageDialog(null, "No shape was drawn!");
